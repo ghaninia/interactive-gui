@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export default class Request{
 
     constructor(url , data = {} , headers = {'Content-Type': 'application/json'}) {
@@ -9,15 +10,14 @@ export default class Request{
     }
 
     request(method) {
+
         let { url , data , headers} = this ;
 
         if(this.token !== undefined) {
             headers = {
                 ...headers ,
-                "Authorization" : "Bearer " + this.token
             } ;
         }
-
 
         switch (method) {
             case "get" : {
@@ -33,7 +33,7 @@ export default class Request{
                     method ,
                     url ,
                     headers ,
-                    data
+                    data ,
                 });
             }
         }

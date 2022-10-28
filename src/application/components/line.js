@@ -10,12 +10,6 @@ const Line = React.forwardRef ( (props, ref) => {
     const [ loading , setLoading ] = React.useState(false) ;
     const [ pointer , setPointer ] = React.useState(0) ;
 
-    React.useEffect(() => {
-        setLoading(false) ;
-        setPointer( queries.length ) ;
-        emptyCurrentSentence() ;
-    },[queries]) ;
-
     /**
      * preccess sentence 
      */
@@ -106,7 +100,7 @@ const Line = React.forwardRef ( (props, ref) => {
 
                 if( currentPointer > queries.length ) {
 
-                } else if (currentPointer == queries.length) {
+                } else if (currentPointer === queries.length) {
                     setPointer(currentPointer) ;
                 } else {
                     setPointer(currentPointer) ;
@@ -143,6 +137,14 @@ const Line = React.forwardRef ( (props, ref) => {
     const emptyCurrentSentence = () => {
         changeFieldTo("") ;
     }
+
+
+    React.useEffect(() => {
+        setLoading(false) ;
+        setPointer( queries.length ) ;
+        emptyCurrentSentence() ;
+    },[queries]) ;
+
 
     /**
      * render HTML 

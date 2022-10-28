@@ -1,6 +1,6 @@
 const Query = (props) => {
 
-    if(props.error == undefined) {
+    if(props.error === undefined) {
 
         return (
             <div className="terminal-line">

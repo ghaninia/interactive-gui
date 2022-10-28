@@ -42,7 +42,7 @@ const Line = React.forwardRef ( (props, ref) => {
                             ... queries , 
                             {
                                 query : sentence ,
-                                result : response?.result
+                                result : response?.data.result
                             }
                         ] );
                     })
@@ -51,7 +51,7 @@ const Line = React.forwardRef ( (props, ref) => {
                             ... queries , 
                             {
                                 query : sentence ,
-                                message : error?.message ,
+                                message : error?.response?.data?.result ?? error?.message ,
                                 error : error?.code
                             }
                         ]);

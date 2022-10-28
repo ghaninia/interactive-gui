@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default class Request{
 
-    constructor(url , data = {} , headers = {'Content-Type': 'application/json'}) {
+    constructor(url , data = {} , headers = {}) {
         this.url = url;
         this.data = data;
         this.headers = headers;
@@ -13,12 +13,19 @@ export default class Request{
 
         let { url , data , headers} = this ;
 
+        
+        headers = {
+            ...headers , 
+            'Content-Type': 'application/x-www-form-urlencoded' , 
+            'Access-Control-Allow-Origin': '*'
+        }
+
         if(this.token !== undefined) {
             headers = {
                 ...headers ,
             } ;
         }
-
+        
         switch (method) {
             case "get" : {
                 url += (Object.keys(data).length) ? "?" + (new URLSearchParams(data)).toString() : "" ;

@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Application from './application';
+import DataContext from "./application/contexts/DataContext" ;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const data = JSON.parse(document.getElementById('data')?.textContent) ;
+
+
 root.render(
   <React.StrictMode>
-    <App />
+      <DataContext.Provider value={ data }>
+        <Application />
+      </DataContext.Provider>
   </React.StrictMode>
 );
 

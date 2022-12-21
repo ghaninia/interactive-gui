@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: interactive_terminal_gui_production
+    image: interactive_terminal_gui_production
+    build:
+      context: Docker/Production
+    volumes:
+      - ./:/application
+    ports:
+      - 3000:3000
